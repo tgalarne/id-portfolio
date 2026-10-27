@@ -154,3 +154,23 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--m
 .split { display: flex; flex-wrap: wrap; gap: 0 48px; align-items: flex-start; }
 .split > section:first-child { flex: 1 1 320px; min-width: 0; }
 .split > section:last-child { flex: 0 1 300px; max-width: 100%; }
+
+/* 14. Skills: grouped cards with labelled chip lists */
+.skill-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.skill-col { display: contents; }
+.skill-card { order: var(--o); }
+/* Wide screens: two independent columns, so cards keep their natural height */
+@media (min-width: 820px) {
+  .skill-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .skill-col { display: flex; flex-direction: column; gap: 20px; }
+}
+.skill-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 22px;
+}
+.skill-card h3 { margin: 0 0 14px; font-size: 1.15rem; }
+.skill-card h4 {
+  margin: 18px 0 8px; font-size: 12.5px; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+}
+.skill-card h3 + h4 { margin-top: 0; }
