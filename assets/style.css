@@ -174,3 +174,13 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--m
   letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
 }
 .skill-card h3 + h4 { margin-top: 0; }
+
+/* 15. Wide project card: slim full-width bar under the project grid */
+.project-card--wide { grid-column: 1 / -1; flex-direction: row; align-items: stretch; }
+.project-card--wide .thumb { aspect-ratio: auto; flex: 0 0 300px; font-size: .9rem; }
+.project-card--wide .project-body { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 14px 20px; }
+.project-card--wide .project-body .tags { margin-top: 0; padding-top: 0; }
+@media (max-width: 620px) {
+  .project-card--wide { flex-direction: column; }
+  .project-card--wide .thumb { flex: none; padding: 18px 16px; }
+}
