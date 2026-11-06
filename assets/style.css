@@ -184,3 +184,37 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--m
   .project-card--wide { flex-direction: column; }
   .project-card--wide .thumb { flex: none; padding: 18px 16px; }
 }
+
+/* 16. Project card images: full-bleed header; small logos are contained, not cropped */
+.project-card:not(.project-card--wide) .thumb { padding: 0; }
+.thumb img.logo { object-fit: contain; padding: 8px; }
+.thumb { overflow: hidden; } /* keeps tall images from stretching the 16:9 box */
+.thumb img { position: absolute; inset: 0; } /* percentage height does not resolve inside an aspect-ratio box */
+.thumb { position: relative; }
+.thumb:has(img.light) { background: #2B3239; }
+.thumb:has(img.logo) { background: #2E343A; } /* sampled from RR_CardImage_v2.jpg edges so the letterbox sides blend in */
+.thumb img.light { object-fit: contain; padding: 14px 0; }
+
+/* 17. Accessibility: keep anchored/focused content clear of the sticky header; 24px minimum target for the back link */
+html { scroll-padding-top: 72px; }
+.back { display: inline-block; padding: 3px 0; }
+
+/* 18. Button icons: decorative, inherit the button text color */
+.btn .icon { width: 1.1em; height: 1.1em; margin-right: 8px; vertical-align: -0.2em; }
+
+/* 19. Second accent (trial): focus rings and "View project" cues.
+   #E8A08C is 8:1 on the dark surfaces but only 2:1 on light ones, so light mode uses a darker tone of the same hue. */
+:root { --accent-2: #9C3D2A; }
+@media (prefers-color-scheme: dark) { :root { --accent-2: #E8A08C; } }
+:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+.more { color: var(--accent-2); }
+/* Cue sits in the bottom-right corner of the three stacked cards (the wide card keeps its own row layout) */
+.project-card:not(.project-card--wide) .more { align-self: flex-end; }
+/* Cue spacing: gap above it matches description-to-tags (about 17px); line-height trimmed so the bottom edge matches the card padding */
+.project-card:not(.project-card--wide) .more { margin-top: 6px; line-height: 1.2; }
+/* Coral on the hero eyebrow and on hover states */
+.eyebrow { color: var(--accent-2); }
+nav a:hover, .brand:hover, .back:hover { color: var(--accent-2); }
+.btn:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.btn.primary:hover { border-color: var(--accent); }
+.project-card:hover { border-color: var(--accent-2); }
