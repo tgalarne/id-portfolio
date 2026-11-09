@@ -204,8 +204,8 @@ html { scroll-padding-top: 72px; }
 
 /* 19. Second accent (trial): focus rings and "View project" cues.
    #E8A08C is 8:1 on the dark surfaces but only 2:1 on light ones, so light mode uses a darker tone of the same hue. */
-:root { --accent-2: #9C3D2A; }
-@media (prefers-color-scheme: dark) { :root { --accent-2: #E8A08C; } }
+:root { --accent-2: #3A7D5C; }
+@media (prefers-color-scheme: dark) { :root { --accent-2: #8DE0B6; } }
 :focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
 .more { color: var(--accent-2); }
 /* Cue sits in the bottom-right corner of the three stacked cards (the wide card keeps its own row layout) */
